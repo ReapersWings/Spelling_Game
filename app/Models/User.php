@@ -16,10 +16,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'mini_game_users';
+
     protected $fillable = [
         'name',
-        'email',
+        //'email',
         'password',
+        'record',
     ];
 
     /**
@@ -40,7 +43,7 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            //'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }

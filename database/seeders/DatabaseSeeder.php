@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\mini_game_answers;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
