@@ -16,7 +16,6 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $table = 'mini_game_users';
 
     protected $fillable = [
         'name',

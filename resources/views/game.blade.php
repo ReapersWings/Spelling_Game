@@ -1,3 +1,22 @@
+ <script>
+    /*["a","p","p","l","e"],
+            ["s","w","o","r","d"],
+            ["a","n","i","m","a","l"],
+            ["o","r","a","n","g","e"],
+            ["r","e","d"],
+            ["a","n","d"],
+            ["m","o","t","h","e","r"],
+            ["f","a","t","h","e","r"]*/
+</script>      
+@php
+    echo "<script>const answer = [";
+    foreach ($data as $row) {
+        echo "[".$row['answer']."],";
+    }
+    echo "]
+    console.log(answer)</script>";
+    
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,7 +188,7 @@
                         <button type="submit">Submit</button>
                     </th>
                     <th>
-                        <button type="button" onclick="reset()" id="reset">Restart</button>
+                        <button type="button" onclick="resetgame()" id="reset">Restart</button>
                     </th>
                 </tr>   
             </table>
@@ -183,18 +202,8 @@
     </div>
 
     <script>
-        const answer = [
-            ["a","p","p","l","e"],
-            ["s","w","o","r","d"],
-            ["a","n","i","m","a","l"],
-            ["o","r","a","n","g","e"],
-            ["r","e","d"],
-            ["a","n","d"],
-            ["m","o","t","h","e","r"],
-            ["f","a","t","h","e","r"]
-        ];
         let randomnumber = Math.floor(Math.random() * answer.length);
-        let time = 10;
+        let time =60;
         let intervalId;
 
         function rowanswer(answers){
@@ -239,7 +248,7 @@
                 }
             }
         }
-
+        
         function checkanswer(total, number){
             var correct_answer = 1;
             for (let index = 0; index < total; index++) {
@@ -280,13 +289,15 @@
             }, 1000);
         }
 
-        function reset(){
+        function resetgame(){
             clearInterval(intervalId);
             time = 60;
             document.getElementById('time').innerHTML = "Time : " + time;
             document.getElementById('hidden').style.display = "none";
             document.getElementById('input').innerHTML = "";
             document.getElementById('quiz').innerHTML = "";
+            document.getElementById('record').value=0
+            document.getElementById('recordtext').innerHTML = "Record : 0"
             randomnumber = Math.floor(Math.random() * answer.length);
             rowanswer(randomnumber);
             startinterval();

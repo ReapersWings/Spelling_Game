@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\answers;
 use App\Models\mini_game_answers;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class mini_game_controller extends Controller
         return view('nickname');
     }
     public function viewgame(){
-        return view('game');
+        return view('game',[
+            'data'=>answers::all()
+        ]);
     }
     public function history(){
         
