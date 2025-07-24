@@ -9,7 +9,6 @@
             ["f","a","t","h","e","r"]*/
 </script>      
 @php
-    dd($data);
     echo "<script>const answer = [";
     foreach ($data as $row) {
         echo "[".$row['answer']."],";
